@@ -1,7 +1,18 @@
+import { authorizeWebapp } from '@commercelayer/js-auth'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { useEffect } from 'react'
 
 export default function Home() {
+  useEffect(() => {
+    authorizeWebapp({
+      clientId: '00MLbZI7lMHF20fGlY_oMdE4rUzb_3e2eOSFO9XMIQw',
+      clientSecret: 'ISeVhXf3Nn_KefAH0xylODeOYwWPUeXmlaD3twIGq0Y',
+      endpoint: 'https://avengers.commercelayer.co',
+      callbackUrl: 'urn:ietf:wg:oauth:2.0:oob',
+      scope: 'market:227',
+    })
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
